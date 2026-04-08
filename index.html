@@ -1,101 +1,178 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>Mon Portfolio</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio - Ton Nom</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #0f172a, #1e293b);
-      color: white;
-    }
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;600;800&display=swap" rel="stylesheet">
 
-    header {
-      text-align: center;
-      padding: 80px 20px;
-    }
+<style>
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: #020617;
+  color: white;
+  scroll-behavior: smooth;
+}
 
-    h1 {
-      font-size: 3em;
-    }
+/* HERO */
+header {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 10%;
+  background: radial-gradient(circle at top, #0f172a, #020617);
+}
 
-    .section {
-      padding: 50px 20px;
-      max-width: 900px;
-      margin: auto;
-    }
+h1 {
+  font-size: 4em;
+  margin: 0;
+  animation: fadeUp 1s ease forwards;
+}
 
-    .skills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
+.subtitle {
+  opacity: 0;
+  animation: fadeUp 1s ease forwards 0.3s;
+}
 
-    .skill {
-      background: #38bdf8;
-      padding: 10px 15px;
-      border-radius: 20px;
-      color: black;
-      font-weight: bold;
-    }
+.cta {
+  margin-top: 20px;
+  padding: 12px 25px;
+  background: #38bdf8;
+  color: black;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: bold;
+  opacity: 0;
+  animation: fadeUp 1s ease forwards 0.6s;
+}
 
-    .card {
-      background: #1e293b;
-      padding: 20px;
-      margin-top: 20px;
-      border-radius: 10px;
-    }
+/* SECTIONS */
+.section {
+  padding: 100px 10%;
+}
 
-    footer {
-      text-align: center;
-      padding: 30px;
-      opacity: 0.6;
-    }
-  </style>
+.section h2 {
+  font-size: 2.5em;
+  margin-bottom: 40px;
+}
+
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+/* CARDS */
+.card {
+  background: #0f172a;
+  padding: 30px;
+  border-radius: 20px;
+  transition: 0.4s;
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  background: #1e293b;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 40px;
+  opacity: 0.5;
+}
+
+/* ANIMATION */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+</style>
 </head>
 
 <body>
 
 <header>
   <h1>Ton Nom</h1>
-  <p>Électricien / Technicien / Ton métier</p>
+  <p class="subtitle">Électricien • Automaticien • Webmaster</p>
+  <button class="cta" onclick="scrollToSection()">Voir mes projets</button>
 </header>
 
-<div class="section">
-  <h2>💡 Compétences</h2>
-  <div class="skills">
-    <div class="skill">Électricité</div>
-    <div class="skill">Domotique</div>
-    <div class="skill">Dépannage</div>
-    <div class="skill">PAC</div>
+<section class="section" id="skills">
+  <h2>Expertises</h2>
+  <div class="grid">
+    <div class="card">⚡ Installation électrique complète</div>
+    <div class="card">🤖 Automatisme & programmation</div>
+    <div class="card">💻 Création de sites web</div>
+    <div class="card">🛠️ Maintenance & dépannage</div>
   </div>
-</div>
+</section>
 
-<div class="section">
-  <h2>🛠️ Projets</h2>
-
-  <div class="card">
-    <h3>Installation électrique maison</h3>
-    <p>Réalisation complète d’un tableau + réseau.</p>
+<section class="section">
+  <h2>Réalisations</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Projet résidentiel</h3>
+      <p>Installation complète + tableau électrique</p>
+    </div>
+    <div class="card">
+      <h3>Système automatisé</h3>
+      <p>Optimisation d’un process industriel</p>
+    </div>
+    <div class="card">
+      <h3>Site professionnel</h3>
+      <p>Création site vitrine moderne</p>
+    </div>
   </div>
+</section>
 
-  <div class="card">
-    <h3>Installation PAC</h3>
-    <p>Mise en place et raccordement.</p>
-  </div>
-</div>
-
-<div class="section">
-  <h2>📞 Contact</h2>
+<section class="section">
+  <h2>Contact</h2>
   <p>Email : tonemail@email.com</p>
-</div>
+</section>
 
 <footer>
   © 2026 - Ton Nom
 </footer>
+
+<script>
+function scrollToSection() {
+  document.getElementById("skills").scrollIntoView({ behavior: "smooth" });
+}
+
+// Animation au scroll
+const cards = document.querySelectorAll('.card');
+
+window.addEventListener('scroll', () => {
+  const triggerBottom = window.innerHeight * 0.85;
+
+  cards.forEach(card => {
+    const boxTop = card.getBoundingClientRect().top;
+
+    if (boxTop < triggerBottom) {
+      card.classList.add('visible');
+    }
+  });
+});
+</script>
 
 </body>
 </html>
