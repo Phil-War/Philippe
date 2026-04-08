@@ -3,17 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portfolio - Philippe Warnotte</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;600;800&display=swap" rel="stylesheet">
+<title>Électricien Compiègne | Automatisme | Photovoltaïque</title>
+
+<meta name="description" content="Électricien à Compiègne : installation, dépannage, conformité, automatisme, Home Assistant, photovoltaïque et création de site web.">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
-  background: #020617;
-  color: white;
-  scroll-behavior: smooth;
+  background: #000;
+  color: #fff;
 }
 
 /* HERO */
@@ -22,88 +24,81 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-left: 10%;
-  background: radial-gradient(circle at top, #0f172a, #020617);
+  padding: 10%;
 }
 
 h1 {
-  font-size: 4em;
-  margin: 0;
-  animation: fadeUp 1s ease forwards;
+  font-size: 3.5em;
+  max-width: 800px;
+  line-height: 1.2;
+}
+
+.gradient {
+  background: linear-gradient(90deg, #38bdf8, #22c55e);
+  -webkit-background-clip: text;
+  color: transparent;
 }
 
 .subtitle {
-  opacity: 0;
-  animation: fadeUp 1s ease forwards 0.3s;
+  margin-top: 20px;
+  opacity: 0.7;
+  max-width: 600px;
 }
 
 .cta {
-  margin-top: 20px;
-  padding: 12px 25px;
-  background: #38bdf8;
+  margin-top: 30px;
+  padding: 15px 30px;
+  background: white;
   color: black;
   border: none;
-  border-radius: 30px;
+  border-radius: 40px;
   cursor: pointer;
   font-weight: bold;
-  opacity: 0;
-  animation: fadeUp 1s ease forwards 0.6s;
 }
 
-/* SECTIONS */
+/* SECTION */
 .section {
-  padding: 100px 10%;
+  padding: 120px 10%;
 }
 
-.section h2 {
+h2 {
   font-size: 2.5em;
-  margin-bottom: 40px;
+  margin-bottom: 50px;
 }
 
 /* GRID */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 25px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
 }
 
-/* CARDS */
+/* CARD */
 .card {
-  background: #0f172a;
+  background: #111;
   padding: 30px;
   border-radius: 20px;
   transition: 0.4s;
-  opacity: 0;
-  transform: translateY(40px);
-}
-
-.card.visible {
-  opacity: 1;
-  transform: translateY(0);
+  border: 1px solid #222;
 }
 
 .card:hover {
-  transform: translateY(-10px);
-  background: #1e293b;
+  transform: scale(1.05);
+  border-color: #38bdf8;
+}
+
+/* DIVIDER */
+.divider {
+  height: 1px;
+  background: #222;
+  margin: 80px 0;
 }
 
 /* FOOTER */
 footer {
   text-align: center;
   padding: 40px;
-  opacity: 0.5;
-}
-
-/* ANIMATION */
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  opacity: 0.4;
 }
 </style>
 </head>
@@ -111,67 +106,80 @@ footer {
 <body>
 
 <header>
-  <h1>Philippe Warnotte</h1>
-  <p class="subtitle">Électricien • Automaticien • Webmaster</p>
-  <button class="cta" onclick="scrollToSection()">Voir mes projets</button>
+  <h1>
+    Solutions techniques<br>
+    <span class="gradient">modernes & fiables</span>
+  </h1>
+
+  <p class="subtitle">
+    Électricien à Compiègne spécialisé en installation, dépannage,
+    automatisme, photovoltaïque et création de sites web.
+  </p>
+
+  <button class="cta" onclick="contact()">Demander un devis</button>
 </header>
 
-<section class="section" id="skills">
-  <h2>Expertises</h2>
+<section class="section">
+  <h2>Électricité</h2>
   <div class="grid">
-    <div class="card">⚡ Installation électrique</div>
-    <div class="card">🤖 Automatisme & Home Assistant</div>
-    <div class="card">💻 Création de sites web</div>
-    <div class="card">🛠️ Photovoltaique</div>
+    <div class="card">Installation électrique complète</div>
+    <div class="card">Dépannage rapide</div>
+    <div class="card">Mise en conformité</div>
   </div>
 </section>
 
+<div class="divider"></div>
+
 <section class="section">
-  <h2>Réalisations</h2>
+  <h2>Automatisme & Domotique</h2>
   <div class="grid">
-    <div class="card">
-      <h3>Projet résidentiel</h3>
-      <p>Installation complète + tableau électrique</p>
-    </div>
-    <div class="card">
-      <h3>Système automatisé</h3>
-      <p>Optimisation d’un process industriel</p>
-    </div>
-    <div class="card">
-      <h3>Site professionnel</h3>
-      <p>Création site vitrine moderne</p>
-    </div>
+    <div class="card">Automates & programmation</div>
+    <div class="card">Home Assistant</div>
+    <div class="card">Optimisation énergétique</div>
   </div>
 </section>
 
+<div class="divider"></div>
+
 <section class="section">
-  <h2>Contact</h2>
-  <p>Email : tonemail@email.com</p>
+  <h2>Photovoltaïque</h2>
+  <div class="grid">
+    <div class="card">Installation panneaux solaires</div>
+    <div class="card">Stockage énergie</div>
+    <div class="card">Optimisation autoconsommation</div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="section">
+  <h2>Création de site web</h2>
+  <div class="grid">
+    <div class="card">Sites avec Joomla</div>
+    <div class="card">Sites WordPress</div>
+    <div class="card">Sites professionnels modernes</div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="section">
+  <h2>Zone d’intervention</h2>
+  <p>Compiègne et alentours</p>
+</section>
+
+<section class="section">
+  <button class="cta" onclick="contact()">Contact rapide</button>
 </section>
 
 <footer>
-  © 2026 - Ton Nom
+  © 2026 - Philippe Warnotte
 </footer>
 
 <script>
-function scrollToSection() {
-  document.getElementById("skills").scrollIntoView({ behavior: "smooth" });
+function contact() {
+  window.location.href = "mailto:webphil3@gmail.com";
 }
-
-// Animation au scroll
-const cards = document.querySelectorAll('.card');
-
-window.addEventListener('scroll', () => {
-  const triggerBottom = window.innerHeight * 0.85;
-
-  cards.forEach(card => {
-    const boxTop = card.getBoundingClientRect().top;
-
-    if (boxTop < triggerBottom) {
-      card.classList.add('visible');
-    }
-  });
-});
 </script>
 
 </body>
